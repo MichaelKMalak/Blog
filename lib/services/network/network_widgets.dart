@@ -6,19 +6,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-class NetworkWrapper extends StatelessWidget {
-  final Widget _widget;
-  NetworkWrapper(Widget widget) : _widget = widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return GraphQLProvider(
-      client: Network.client(),
-      child: _widget,
-    );
-  }
-}
-
 class PostListQuery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

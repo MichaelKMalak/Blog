@@ -31,6 +31,13 @@ class Network {
   }
   ''';
 
+  static Widget wrap (Widget _widget) {
+    return GraphQLProvider(
+      client: client(),
+      child: _widget,
+    );
+  }
+
   static ValueNotifier<GraphQLClient> client() {
     final client = ValueNotifier<GraphQLClient>(GraphQLClient(
         link: getAuthLink(),
