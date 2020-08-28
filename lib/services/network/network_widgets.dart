@@ -1,8 +1,8 @@
 import 'package:blog/constants.dart';
 import 'package:blog/pages/homepage/post_list.dart';
 import 'package:blog/services/network/network.dart';
-import 'package:blog/shared_widgets/exception_widget.dart';
-import 'package:blog/shared_widgets/loading_widget.dart';
+import 'package:blog/shared/exception_widget.dart';
+import 'package:blog/shared/loading_widget.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
