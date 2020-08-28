@@ -1,4 +1,3 @@
-import 'package:blog/constants.dart';
 import 'package:blog/pages/home/post_list.dart';
 import 'package:blog/services/network/network.dart';
 import 'package:blog/shared/exception_widget.dart';
@@ -25,7 +24,7 @@ class PostListQuery extends StatelessWidget {
   Widget build(BuildContext context) {
     return Query(
       options: QueryOptions(
-        documentNode: gql(Constants.getPostList),
+        documentNode: gql(Network.getPostList),
         variables: {
           'nRepositories': 50,
         },
