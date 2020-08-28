@@ -1,6 +1,6 @@
 class Constants {
   static const String githubUri = 'https://api.github.com/graphql';
-  static const String readBlogPosts = '''
+  static const String getPostList = '''
   query Flutter_Github_GraphQL {
     repository(name: "blog", owner: "MichaelKMalak") {
       issues(filterBy: {states: OPEN, labels: "blog"}, first: 20, orderBy: {field: CREATED_AT, direction: ASC}, labels: "") {
