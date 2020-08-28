@@ -1,14 +1,16 @@
-import 'package:blog/pages/homepage.dart';
+import 'package:blog/services/network/network_widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(materialApp());
+}
+
+MaterialApp materialApp() {
+  return MaterialApp(
     title: 'Blog',
     debugShowCheckedModeBanner: false,
-    // theme: ThemeData(
-    //   visualDensity: VisualDensity.adaptivePlatformDensity,
-    // ),
+    theme: ThemeData.light(),
     home: HomePageWrapper(),
-  ));
+  );
 }
