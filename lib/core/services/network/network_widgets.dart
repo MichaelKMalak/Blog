@@ -22,7 +22,6 @@ class BlogPostListQuery extends StatelessWidget {
         if (result.loading) return LoadingWidget();
 
         final _resultedList = BlogPostHeader.fromJsonList(result.data);
-
         return BlogPostList(_resultedList);
       },
     );
