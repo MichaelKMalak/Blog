@@ -1,21 +1,18 @@
-import 'package:blog/pages/home/post_list.dart';
-import 'package:blog/services/network/network.dart';
+import 'package:blog/core/models/blog_post/blog_post.dart';
+import 'package:blog/core/services/network/network.dart';
 import 'package:blog/shared/exception_widget.dart';
 import 'package:blog/shared/loading_widget.dart';
+import 'package:blog/ui/widgets/post_list.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-class PostListQuery extends StatelessWidget {
+class BlogPostListQuery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Query(
       options: QueryOptions(
         documentNode: gql(Network.getPostList),
-        variables: {
-          'nRepositories': 50,
-        },
-        pollInterval: 10,
       ),
       builder: (QueryResult result,
           {VoidCallback refetch, FetchMore fetchMore}) {
@@ -24,7 +21,9 @@ class PostListQuery extends StatelessWidget {
 
         if (result.loading) return LoadingWidget();
 
-        return PostList(result.data['repository']['issues']['edges']);
+        final _resultedList = BlogPost.fromJsonList(result.data);
+
+        return BlogPostList(_resultedList);
       },
     );
   }

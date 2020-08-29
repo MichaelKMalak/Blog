@@ -12,7 +12,6 @@ class Network {
           node {
             id
             body
-            bodyHTML
             createdAt
             lastEditedAt
             labels(first: 10) {
@@ -22,7 +21,6 @@ class Network {
             }
             title
             url
-            updatedAt
           }
         }
         totalCount
@@ -31,10 +29,10 @@ class Network {
   }
   ''';
 
-  static Widget wrap (Widget _widget) {
+  static Widget wrap ({@required Widget child}) {
     return GraphQLProvider(
       client: client(),
-      child: _widget,
+      child: child,
     );
   }
 

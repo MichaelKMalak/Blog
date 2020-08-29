@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class PostPage extends StatelessWidget {
+class BlogPostScreen extends StatelessWidget {
   final String _postId;
-  PostPage({@required String postId}): _postId = postId;
+  BlogPostScreen({@required String postId}): _postId = postId;
 
   @override
   Widget build(BuildContext context) {
