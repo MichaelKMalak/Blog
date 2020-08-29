@@ -1,4 +1,5 @@
-import 'package:blog/core/models/blog_post/blog_post.dart';
+
+import 'package:blog/core/models/blog_post_header/blog_post_header.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,13 +10,13 @@ void main() {
     test('mapping posts list from response', () {
       final listResponse = MockServer.listResponse;
       final blogPostList =
-          compute(BlogPost.fromJsonList, MockServer.listResponse);
+          compute(BlogPostHeader.fromJsonList, MockServer.listResponse);
 
       blogPostList.then((value) {
         expect(
-            value[0].body,
+            value[0].title,
             equals(listResponse['repository']['issues']['edges'][0]['node']
-                ['body']));
+                ['title']));
       });
     });
   });

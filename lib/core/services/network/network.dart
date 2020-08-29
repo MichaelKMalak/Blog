@@ -1,6 +1,7 @@
 import 'package:blog/config.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Network {
   static const String githubUri = 'https://api.github.com/graphql';
@@ -29,7 +30,7 @@ class Network {
   }
   ''';
 
-  static Widget wrap ({@required Widget child}) {
+  static Widget wrap({@required Widget child}) {
     return GraphQLProvider(
       client: client(),
       child: child,
@@ -51,5 +52,13 @@ class Network {
       getToken: () async => 'Bearer ${EnvironmentConfig.githubAccessToken}',
     );
     return authLink.concat(httpLink);
+  }
+
+  static dynamic launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

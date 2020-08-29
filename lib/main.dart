@@ -12,7 +12,9 @@ MaterialApp materialApp() {
   return MaterialApp(
     title: 'Blog',
     debugShowCheckedModeBanner: false,
-    theme: ThemeData.light(),
+    theme: ThemeData.light().copyWith(
+      scaffoldBackgroundColor: Colors.white
+    ),
     initialRoute: Constants.initialRoute,
     onGenerateRoute: RouteGenerator.generateRoute,
   );
