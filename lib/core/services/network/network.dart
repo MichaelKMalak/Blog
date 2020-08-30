@@ -4,32 +4,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Network {
-  static const String githubUri = 'https://api.github.com/graphql';
-  static const String getPostList = '''
-  query Flutter_Github_GraphQL {
-    repository(name: "blog", owner: "MichaelKMalak") {
-      issues(filterBy: {states: OPEN, labels: "blog"}, first: 20, orderBy: {field: CREATED_AT, direction: ASC}, labels: "") {
-        edges {
-          node {
-            id
-            body
-            createdAt
-            lastEditedAt
-            labels(first: 10) {
-              nodes {
-                name
-              }
-            }
-            title
-            url
-          }
-        }
-        totalCount
-      }
-    }
-  }
-  ''';
-
+  static const NetworkConstants constants = NetworkConstants();
   static Widget wrap({@required Widget child}) {
     return GraphQLProvider(
       client: client(),
@@ -46,7 +21,7 @@ class Network {
 
   static Link getAuthLink() {
     final httpLink = HttpLink(
-      uri: githubUri,
+      uri: constants.githubUri,
     );
     final authLink = AuthLink(
       getToken: () async => 'Bearer ${EnvironmentConfig.githubAccessToken}',
@@ -61,4 +36,29 @@ class Network {
       throw 'Could not launch $url';
     }
   }
+}
+
+class NetworkConstants {
+  const NetworkConstants();
+  String get githubUri => 'https://api.github.com/graphql';
+  String get getPostList => '''
+  query Flutter_Github_GraphQL {
+    repository(name: "blog", owner: "MichaelKMalak") {
+      issues(filterBy: {states: OPEN, labels: "blog tech"}, first: 20, orderBy: {field: CREATED_AT, direction: ASC}, labels: "") {
+        edges {
+          node {
+            id
+            createdAt
+            title
+            participants(first: 1) {
+              nodes {
+                avatarUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ''';
 }

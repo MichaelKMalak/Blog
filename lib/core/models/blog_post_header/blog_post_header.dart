@@ -15,16 +15,19 @@ abstract class BlogPostHeader
   String get title;
   String get id;
   String get createdAt;
+  String get avatarUrl;
 
   static List<BlogPostHeader> fromJsonList(dynamic data) {
     final _array = data['repository']['issues']['edges'];
 
     final _blogPosts = _array
-        .map<BlogPostHeader>(
-            (dynamic blog) => BlogPostHeader((BlogPostHeaderBuilder b) => b
+        .map<BlogPostHeader>((dynamic blog) => BlogPostHeader(
+            (BlogPostHeaderBuilder b) => b
               ..title = blog['node']['title']
               ..id = blog['node']['id']
-              ..createdAt = blog['node']['createdAt']))
+              ..createdAt = blog['node']['createdAt']
+              ..avatarUrl =
+                  blog['node']['participants']['nodes'][0]['avatarUrl']))
         .toList();
 
     return _blogPosts;

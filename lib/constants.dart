@@ -3,6 +3,5 @@ class Constants {
   static const double maxScaffoldWidth = 700;
   static const double widthFactor = 0.85;
 
-  //Routes
-  static const String initialRoute = '/';
+  static const String placeholderImageUrl = 'https://thispersondoesnotexist.com/image';
 }

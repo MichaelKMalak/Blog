@@ -1,17 +1,18 @@
-import 'package:blog/constants.dart';
-import 'package:blog/ui/screens/home.dart';
+import 'package:blog/core/services/network/network_widgets.dart';
 import 'package:blog/ui/screens/post.dart';
 import 'package:blog/ui/utils/responsive_width_widget.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
+  static const String initialRoute = '/';
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final pathComponents = settings.name.split('/');
     switch (settings.name) {
-      case Constants.initialRoute:
+      case initialRoute:
         return MaterialPageRoute(
           builder: (_) => ResponsiveWidthWidget(
-            child: HomeScreen(),
+            child: HomeQuery(),
           ),
           settings: settings,
         );

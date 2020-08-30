@@ -28,6 +28,9 @@ class _$BlogPostHeaderSerializer
       'createdAt',
       serializers.serialize(object.createdAt,
           specifiedType: const FullType(String)),
+      'avatarUrl',
+      serializers.serialize(object.avatarUrl,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -57,6 +60,10 @@ class _$BlogPostHeaderSerializer
           result.createdAt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'avatarUrl':
+          result.avatarUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -71,11 +78,14 @@ class _$BlogPostHeader extends BlogPostHeader {
   final String id;
   @override
   final String createdAt;
+  @override
+  final String avatarUrl;
 
   factory _$BlogPostHeader([void Function(BlogPostHeaderBuilder) updates]) =>
       (new BlogPostHeaderBuilder()..update(updates)).build();
 
-  _$BlogPostHeader._({this.title, this.id, this.createdAt}) : super._() {
+  _$BlogPostHeader._({this.title, this.id, this.createdAt, this.avatarUrl})
+      : super._() {
     if (title == null) {
       throw new BuiltValueNullFieldError('BlogPostHeader', 'title');
     }
@@ -84,6 +94,9 @@ class _$BlogPostHeader extends BlogPostHeader {
     }
     if (createdAt == null) {
       throw new BuiltValueNullFieldError('BlogPostHeader', 'createdAt');
+    }
+    if (avatarUrl == null) {
+      throw new BuiltValueNullFieldError('BlogPostHeader', 'avatarUrl');
     }
   }
 
@@ -101,13 +114,15 @@ class _$BlogPostHeader extends BlogPostHeader {
     return other is BlogPostHeader &&
         title == other.title &&
         id == other.id &&
-        createdAt == other.createdAt;
+        createdAt == other.createdAt &&
+        avatarUrl == other.avatarUrl;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, title.hashCode), id.hashCode), createdAt.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, title.hashCode), id.hashCode), createdAt.hashCode),
+        avatarUrl.hashCode));
   }
 
   @override
@@ -115,7 +130,8 @@ class _$BlogPostHeader extends BlogPostHeader {
     return (newBuiltValueToStringHelper('BlogPostHeader')
           ..add('title', title)
           ..add('id', id)
-          ..add('createdAt', createdAt))
+          ..add('createdAt', createdAt)
+          ..add('avatarUrl', avatarUrl))
         .toString();
   }
 }
@@ -136,6 +152,10 @@ class BlogPostHeaderBuilder
   String get createdAt => _$this._createdAt;
   set createdAt(String createdAt) => _$this._createdAt = createdAt;
 
+  String _avatarUrl;
+  String get avatarUrl => _$this._avatarUrl;
+  set avatarUrl(String avatarUrl) => _$this._avatarUrl = avatarUrl;
+
   BlogPostHeaderBuilder();
 
   BlogPostHeaderBuilder get _$this {
@@ -143,6 +163,7 @@ class BlogPostHeaderBuilder
       _title = _$v.title;
       _id = _$v.id;
       _createdAt = _$v.createdAt;
+      _avatarUrl = _$v.avatarUrl;
       _$v = null;
     }
     return this;
@@ -164,7 +185,8 @@ class BlogPostHeaderBuilder
   @override
   _$BlogPostHeader build() {
     final _$result = _$v ??
-        new _$BlogPostHeader._(title: title, id: id, createdAt: createdAt);
+        new _$BlogPostHeader._(
+            title: title, id: id, createdAt: createdAt, avatarUrl: avatarUrl);
     replace(_$result);
     return _$result;
   }

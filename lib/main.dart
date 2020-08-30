@@ -1,4 +1,3 @@
-import 'package:blog/constants.dart';
 import 'package:blog/route_generator.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ MaterialApp materialApp() {
     theme: ThemeData.light().copyWith(
       scaffoldBackgroundColor: Colors.white
     ),
-    initialRoute: Constants.initialRoute,
+    initialRoute: RouteGenerator.initialRoute,
     onGenerateRoute: RouteGenerator.generateRoute,
   );
 }
