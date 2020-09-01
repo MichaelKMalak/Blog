@@ -1,4 +1,5 @@
 import 'package:blog/constants.dart';
+import 'package:blog/route_generator.dart';
 import 'package:flutter/material.dart';
 
 class HeaderWidget extends StatelessWidget {
@@ -22,9 +23,13 @@ class HeaderWidget extends StatelessWidget {
               backgroundColor: Colors.transparent,
             ),
             const SizedBox(height: 15),
-            Text(
-              'MICHAEL K MALAK',
-              style: Theme.of(context).textTheme.headline6,
+            InkWell(
+              onTap: () =>
+                  Navigator.pushNamed(context, RouteGenerator.initialRoute),
+              child: Text(
+                Constants.userName,
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
           ],
         ),

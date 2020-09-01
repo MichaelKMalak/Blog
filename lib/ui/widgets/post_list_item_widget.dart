@@ -9,14 +9,19 @@ class PostListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(_blogPost.createdAt),
+        Text(buildDate()),
         const SizedBox(width: 15),
         InkWell(
-          onTap: () =>
-              Navigator.pushNamed(context, '/${_blogPost.id}'),
+          onTap: () => Navigator.pushNamed(context, '/${_blogPost.id}'),
           child: MarkdownWidget(_blogPost.title),
         ),
       ],
     );
+  }
+
+  String buildDate() {
+    final date = DateTime.parse(_blogPost.createdAt);
+    final dateSlug ="${date.day.toString().padLeft(2,'0')}/${date.month.toString().padLeft(2,'0')}/${date.year.toString()}";
+    return dateSlug;
   }
 }
