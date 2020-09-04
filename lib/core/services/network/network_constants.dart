@@ -1,11 +1,13 @@
+import 'package:blog/constants.dart';
+
 class NetworkConstants {
   const NetworkConstants();
   String get githubUri => 'https://api.github.com/graphql';
 
   String get getPostList => '''
   query Flutter_Github_GraphQL {
-    repository(name: "blog", owner: "MichaelKMalak") {
-      issues(filterBy: {states: OPEN, labels: "blog tech" createdBy: "MichaelKMalak"}, first: 20, orderBy: {field: CREATED_AT, direction: ASC}, labels: "") {
+    repository(name: "blog", owner: "${Constants.username}") {
+      issues(filterBy: {states: OPEN, labels: "blog tech" createdBy: "${Constants.username}"}, first: 20, orderBy: {field: CREATED_AT, direction: ASC}, labels: "") {
         edges {
           node {
             number
@@ -23,7 +25,7 @@ class NetworkConstants {
 
   String getPostById (String id) => '''
  query Flutter_Github_GraphQL {
-  repository(name: "blog", owner: "MichaelKMalak") {
+  repository(name: "blog", owner: "${Constants.username}") {
     issue(number: $id) {
       body
       createdAt

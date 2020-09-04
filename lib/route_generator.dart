@@ -1,6 +1,6 @@
 import 'package:blog/core/services/network/network_widgets.dart';
-import 'package:blog/core/utils/encoder.dart';
 import 'package:blog/ui/shared/responsive_width_widget.dart';
+import 'package:blog/utils/encoder.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {

@@ -1,4 +1,4 @@
-import 'package:blog/core/utils/encoder.dart';
+import 'package:blog/utils/encoder.dart';
 
 class EnvironmentConfig {
   static const encodedAccessToken = String.fromEnvironment('ACCESS_TOKEN');

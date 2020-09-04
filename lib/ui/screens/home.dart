@@ -4,21 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:blog/ui/widgets/post_list_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-  final List<BlogPostHeader> _blogPostList;
-  HomeScreen(List<BlogPostHeader> blogPostList) : _blogPostList = blogPostList;
+  final List<BlogPostHeader> blogPostList;
+  HomeScreen(this.blogPostList);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            flex: 1,
-            child: HeaderWidget(avatarUrl: _blogPostList.first?.avatarUrl),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverToBoxAdapter(
+            child: Flexible(
+              flex: 1,
+              child: HeaderWidget(avatarUrl: blogPostList.first?.avatarUrl),
+            ),
           ),
-          Expanded(
-            flex: 2,
-            child: BlogPostList(_blogPostList),
+          SliverFillViewport(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return BlogPostList(blogPostList);
+              },
+            ),
           ),
         ],
       ),

@@ -3,8 +3,8 @@ import 'package:blog/ui/widgets/post_list_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class BlogPostList extends StatelessWidget {
-  final List<BlogPostHeader> _list;
-  BlogPostList(List<BlogPostHeader> list) : _list = list;
+  final List<BlogPostHeader> list;
+  BlogPostList(this.list);
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,13 @@ class BlogPostList extends StatelessWidget {
           'Latest Posts',
           style: Theme.of(context).textTheme.headline6,
         ),
-        const SizedBox(height: 15),
+    //   const SizedBox(height: 15),
         Expanded(
           child: ListView.builder(
-            itemCount: _list.length,
+            //primary: false,
+            itemCount: list.length,
             itemBuilder: (context, index) {
-              final blogPost = _list[index];
+              final blogPost = list[index];
               return PostListItem(blogPost);
             },
           ),

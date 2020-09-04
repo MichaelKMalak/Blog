@@ -3,8 +3,8 @@ import 'package:blog/core/models/blog_post_header/blog_post_header.dart';
 import 'package:blog/core/services/network/network.dart';
 import 'package:blog/ui/screens/home.dart';
 import 'package:blog/ui/screens/post.dart';
-import 'package:blog/ui/widgets/exception_widget.dart';
-import 'package:blog/ui/widgets/loading_widget.dart';
+import 'package:blog/ui/shared/exception_widget.dart';
+import 'package:blog/ui/shared/loading_widget.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -50,8 +50,8 @@ class BlogPostQuery extends StatelessWidget {
 
           if (result.loading) return LoadingWidget();
 
-          final _result = BlogPost.fromJsonList(result.data);
-          return BlogPostScreen(post: _result);
+          final _resultPost = BlogPost.fromJsonList(result.data);
+          return BlogPostScreen(post: _resultPost);
         },
       ),
     );
