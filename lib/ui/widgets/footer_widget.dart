@@ -12,15 +12,15 @@ class FooterWidget extends StatelessWidget {
       child: Row(
         children: <Widget>[
           IconWidget(
-            icon: FaIcon(FontAwesomeIcons.github, size: 20),
+            icon: const FaIcon(FontAwesomeIcons.github, size: 20),
             onPressed: () => Network.launchURL(Constants.githubUrl),
           ),
           IconWidget(
-            icon: FaIcon(FontAwesomeIcons.linkedin, size: 20),
+            icon: const FaIcon(FontAwesomeIcons.linkedin, size: 20),
             onPressed: () => Network.launchURL(Constants.linkedInUrl),
           ),
           IconWidget(
-            icon: Icon(Icons.mail, size: 20),
+            icon: const Icon(Icons.mail, size: 20),
             onPressed: () => Network.launchURL(Constants.emailAddressScheme),
           ),
         ],

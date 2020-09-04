@@ -1,7 +1,7 @@
 class Constants {
   //User dependent
   static const String displayName = 'MICHAEL K MALAK';
-  static const String username = 'MichaelKMalak';
+  static const String username = 'michaelkmalak';
   static const String firstName = 'Michael';
   static const String githubUrl = 'http://github.com/$username';
   static const String linkedInUrl = 'http://linkedin.com/in/$username';
