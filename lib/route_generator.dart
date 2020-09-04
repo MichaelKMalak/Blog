@@ -1,6 +1,6 @@
 import 'package:blog/core/services/network/network_widgets.dart';
-import 'package:blog/ui/screens/post.dart';
-import 'package:blog/ui/utils/responsive_width_widget.dart';
+import 'package:blog/core/utils/encoder.dart';
+import 'package:blog/ui/shared/responsive_width_widget.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -20,8 +20,8 @@ class RouteGenerator {
       default:
         return MaterialPageRoute(
           builder: (_) => ResponsiveWidthWidget(
-              child: BlogPostScreen(
-            postId: pathComponents.last,
+              child: BlogPostQuery(
+            postId: Encoder.decode(pathComponents.last),
           )),
           settings: settings,
         );

@@ -1,4 +1,5 @@
 import 'package:blog/config.dart';
+import 'package:blog/core/services/network/network_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,29 +37,4 @@ class Network {
       throw 'Could not launch $url';
     }
   }
-}
-
-class NetworkConstants {
-  const NetworkConstants();
-  String get githubUri => 'https://api.github.com/graphql';
-  String get getPostList => '''
-  query Flutter_Github_GraphQL {
-    repository(name: "blog", owner: "MichaelKMalak") {
-      issues(filterBy: {states: OPEN, labels: "blog tech"}, first: 20, orderBy: {field: CREATED_AT, direction: ASC}, labels: "") {
-        edges {
-          node {
-            id
-            createdAt
-            title
-            participants(first: 1) {
-              nodes {
-                avatarUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  ''';
 }

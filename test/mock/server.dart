@@ -5,7 +5,7 @@ class MockServer {
             'edges': [
               {
                 'node': {
-                  'id': 'MDU6SXNzdWU2ODc1NDAxNTc=',
+                  'number': 1,
                   'body':
                       '''**This is a simple test** to _demonstrate_ the concept.\r\n\r\nIt should be working! 😄 ''',
                   'createdAt': '2020-08-27T21:04:54Z',
@@ -29,7 +29,7 @@ class MockServer {
               },
               {
                 'node': {
-                  'id': 'MDU6SXNzdWU2ODgzOTg0NjY=',
+                  'number': 2,
                   'body':
                       '# Second Blog Post!\r\n##This is the second blog post!',
                   'createdAt': '2020-08-28T23:04:58Z',

@@ -1,7 +1,6 @@
 library blog_post_header;
 
 import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
 
 part 'blog_post_header.g.dart';
 
@@ -13,7 +12,7 @@ abstract class BlogPostHeader
   BlogPostHeader._();
 
   String get title;
-  String get id;
+  String get number;
   String get createdAt;
   String get avatarUrl;
 
@@ -24,15 +23,12 @@ abstract class BlogPostHeader
         .map<BlogPostHeader>((dynamic blog) => BlogPostHeader(
             (BlogPostHeaderBuilder b) => b
               ..title = blog['node']['title']
-              ..id = blog['node']['id']
+              ..number = blog['node']['number'].toString()
               ..createdAt = blog['node']['createdAt']
               ..avatarUrl =
-                  blog['node']['participants']['nodes'][0]['avatarUrl']))
+                  blog['node']['author']['avatarUrl']))
         .toList();
 
     return _blogPosts;
   }
-
-  static Serializer<BlogPostHeader> get serializer =>
-      _$blogPostHeaderSerializer;
 }

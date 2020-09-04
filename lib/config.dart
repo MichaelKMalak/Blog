@@ -1,7 +1,6 @@
-import 'dart:convert';
+import 'package:blog/core/utils/encoder.dart';
 
 class EnvironmentConfig {
   static const encodedAccessToken = String.fromEnvironment('ACCESS_TOKEN');
-  static String githubAccessToken =
-      utf8.fuse(base64).decode(encodedAccessToken);
+  static String githubAccessToken = Encoder.decode(encodedAccessToken);
 }

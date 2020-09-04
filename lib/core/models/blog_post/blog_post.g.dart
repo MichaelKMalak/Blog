@@ -1,103 +1,115 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of blog_post_header;
+part of blog_post;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$BlogPostHeader extends BlogPostHeader {
+class _$BlogPost extends BlogPost {
   @override
   final String title;
   @override
-  final String number;
+  final String body;
   @override
   final String createdAt;
   @override
+  final String url;
+  @override
   final String avatarUrl;
 
-  factory _$BlogPostHeader([void Function(BlogPostHeaderBuilder) updates]) =>
-      (new BlogPostHeaderBuilder()..update(updates)).build();
+  factory _$BlogPost([void Function(BlogPostBuilder) updates]) =>
+      (new BlogPostBuilder()..update(updates)).build();
 
-  _$BlogPostHeader._({this.title, this.number, this.createdAt, this.avatarUrl})
+  _$BlogPost._(
+      {this.title, this.body, this.createdAt, this.url, this.avatarUrl})
       : super._() {
     if (title == null) {
-      throw new BuiltValueNullFieldError('BlogPostHeader', 'title');
+      throw new BuiltValueNullFieldError('BlogPost', 'title');
     }
-    if (number == null) {
-      throw new BuiltValueNullFieldError('BlogPostHeader', 'number');
+    if (body == null) {
+      throw new BuiltValueNullFieldError('BlogPost', 'body');
     }
     if (createdAt == null) {
-      throw new BuiltValueNullFieldError('BlogPostHeader', 'createdAt');
+      throw new BuiltValueNullFieldError('BlogPost', 'createdAt');
+    }
+    if (url == null) {
+      throw new BuiltValueNullFieldError('BlogPost', 'url');
     }
     if (avatarUrl == null) {
-      throw new BuiltValueNullFieldError('BlogPostHeader', 'avatarUrl');
+      throw new BuiltValueNullFieldError('BlogPost', 'avatarUrl');
     }
   }
 
   @override
-  BlogPostHeader rebuild(void Function(BlogPostHeaderBuilder) updates) =>
+  BlogPost rebuild(void Function(BlogPostBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BlogPostHeaderBuilder toBuilder() =>
-      new BlogPostHeaderBuilder()..replace(this);
+  BlogPostBuilder toBuilder() => new BlogPostBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BlogPostHeader &&
+    return other is BlogPost &&
         title == other.title &&
-        number == other.number &&
+        body == other.body &&
         createdAt == other.createdAt &&
+        url == other.url &&
         avatarUrl == other.avatarUrl;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, title.hashCode), number.hashCode), createdAt.hashCode),
+        $jc($jc($jc($jc(0, title.hashCode), body.hashCode), createdAt.hashCode),
+            url.hashCode),
         avatarUrl.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('BlogPostHeader')
+    return (newBuiltValueToStringHelper('BlogPost')
           ..add('title', title)
-          ..add('number', number)
+          ..add('body', body)
           ..add('createdAt', createdAt)
+          ..add('url', url)
           ..add('avatarUrl', avatarUrl))
         .toString();
   }
 }
 
-class BlogPostHeaderBuilder
-    implements Builder<BlogPostHeader, BlogPostHeaderBuilder> {
-  _$BlogPostHeader _$v;
+class BlogPostBuilder implements Builder<BlogPost, BlogPostBuilder> {
+  _$BlogPost _$v;
 
   String _title;
   String get title => _$this._title;
   set title(String title) => _$this._title = title;
 
-  String _number;
-  String get number => _$this._number;
-  set number(String number) => _$this._number = number;
+  String _body;
+  String get body => _$this._body;
+  set body(String body) => _$this._body = body;
 
   String _createdAt;
   String get createdAt => _$this._createdAt;
   set createdAt(String createdAt) => _$this._createdAt = createdAt;
 
+  String _url;
+  String get url => _$this._url;
+  set url(String url) => _$this._url = url;
+
   String _avatarUrl;
   String get avatarUrl => _$this._avatarUrl;
   set avatarUrl(String avatarUrl) => _$this._avatarUrl = avatarUrl;
 
-  BlogPostHeaderBuilder();
+  BlogPostBuilder();
 
-  BlogPostHeaderBuilder get _$this {
+  BlogPostBuilder get _$this {
     if (_$v != null) {
       _title = _$v.title;
-      _number = _$v.number;
+      _body = _$v.body;
       _createdAt = _$v.createdAt;
+      _url = _$v.url;
       _avatarUrl = _$v.avatarUrl;
       _$v = null;
     }
@@ -105,25 +117,26 @@ class BlogPostHeaderBuilder
   }
 
   @override
-  void replace(BlogPostHeader other) {
+  void replace(BlogPost other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$BlogPostHeader;
+    _$v = other as _$BlogPost;
   }
 
   @override
-  void update(void Function(BlogPostHeaderBuilder) updates) {
+  void update(void Function(BlogPostBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$BlogPostHeader build() {
+  _$BlogPost build() {
     final _$result = _$v ??
-        new _$BlogPostHeader._(
+        new _$BlogPost._(
             title: title,
-            number: number,
+            body: body,
             createdAt: createdAt,
+            url: url,
             avatarUrl: avatarUrl);
     replace(_$result);
     return _$result;
