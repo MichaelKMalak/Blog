@@ -10,6 +10,7 @@ class MarkdownWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MarkdownBody(
       data: _text,
+      shrinkWrap: true,
       extensionSet: md.ExtensionSet(
           md.ExtensionSet.gitHubFlavored.blockSyntaxes, [
         md.EmojiSyntax(),

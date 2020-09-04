@@ -9,20 +9,26 @@ class BlogPostList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'Latest Posts',
           style: Theme.of(context).textTheme.headline6,
         ),
-    //   const SizedBox(height: 15),
-        Expanded(
-          child: ListView.builder(
-            //primary: false,
+        const SizedBox(height: 15),
+        Flexible(
+          fit: FlexFit.loose,
+          child: ListView.separated(
+            primary: false,
+            shrinkWrap: true,
             itemCount: list.length,
             itemBuilder: (context, index) {
               final blogPost = list[index];
               return PostListItem(blogPost);
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(height: 20);
             },
           ),
         ),

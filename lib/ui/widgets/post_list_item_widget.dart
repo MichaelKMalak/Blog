@@ -11,15 +11,18 @@ class PostListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.baseline,
       children: [
         Expanded(
-            flex: 32,
-            child: Text(Formatter.formatDate(blogPost.createdAt))),
+          flex: 32,
+          child: Text(Formatter.formatDate(blogPost.createdAt)),
+        ),
         const Spacer(),
         Expanded(
           flex: 125,
           child: InkWell(
-            onTap: () => Navigator.pushNamed(context, '/${Encoder.encode(blogPost.number)}'),
+            onTap: () => Navigator.pushNamed(
+                context, '/${Encoder.encode(blogPost.number)}'),
             child: MarkdownWidget(blogPost.title),
           ),
         ),
